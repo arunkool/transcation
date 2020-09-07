@@ -39,16 +39,16 @@ public class TranscationApplicationServiceTests {
 	
 	@Test
 	public void getTranscationsByCustomerIdTest() {
-		Customer customer = new Customer();
-		customer.setId(1);
-		customer.setPhoneNo(1234567890);
-		customer.setBalance(5);
+		Customer testCustomer = new Customer();
+		testCustomer.setId(1);
+		testCustomer.setPhoneNo(1234567890);
+		testCustomer.setBalance(5);
 		Transcation trans = new Transcation();
 		trans.setAmount(10);
-		trans.setCustomerId(customer.getId());
-		customer.setTranscations(Stream
+		trans.setCustomerId(testCustomer.getId());
+		testCustomer.setTranscations(Stream
 				.of(trans).collect(Collectors.toList()));
-		Optional<Customer> custOptional = Optional.of(customer);
+		Optional<Customer> custOptional = Optional.of(testCustomer);
 		when(repository.findById(1)).thenReturn(custOptional);
 		assertEquals(service.getCustomerById(1).getTranscations().get(0).getCustomerId(), 1);
 	}
