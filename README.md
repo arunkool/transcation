@@ -5,7 +5,6 @@ Requests:
 1. Add Customer
 Method : Post
 URL: http://localhost:9292/docomo/addCustomer
-Needed Fields
 Body : {
 "name":"TestName",
 "phoneNo":123456789,
